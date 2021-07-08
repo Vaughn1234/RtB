@@ -1,13 +1,14 @@
+filter_query = """
+    query ($code: String! $start: Float! $end: Float!){
+      
 
-
-filter_query = """"query EventData
-    query ($code: String! $start: Float $end: Float){
+      
         reportData {
             report(code: $code){ 
                 events(
                     startTime: $start, 
                     endTime: $end, 
-                    filterExpression: $filterExpression
+                    filterExpression: "type = \\"cast\\" and ability.id = 315508 or type =\\"applybuff\\" and ability.id = 193358 or type =\\"applybuff\\" and ability.id = 193356 or type =\\"applybuff\\" and ability.id = 193357 or type =\\"applybuff\\" and ability.id = 199600 or type =\\"applybuff\\" and ability.id = 199603 or type =\\"applybuff\\" and ability.id = 193359"
 )
        {
                     data
@@ -15,7 +16,10 @@ filter_query = """"query EventData
       }
     }
   }
-}"""
+  }
+  
+
+"""
 
 filter_query_two = """query 
 EventData
@@ -41,7 +45,7 @@ get_start_and_end = """
 query ($code: String!){ 
   reportData {
     report(code: $code)
-      {fights
+      {fights( killType: Kills)
         {
           startTime 
           endTime 
