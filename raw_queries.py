@@ -12,7 +12,6 @@ filter_query = """
 )
        {
                     data
-                    nextPageTimestamp
       }
     }
   }
@@ -56,7 +55,7 @@ query ($code: String!){
 
 get_report_ids = """query worldData {
   worldData {
-    encounter(id:2407) {
+    encounter(id:2417) {
       characterRankings (className:\"Rogue\", specName:\"Outlaw\",page: 3,serverRegion:\"EU\"
      )
       
